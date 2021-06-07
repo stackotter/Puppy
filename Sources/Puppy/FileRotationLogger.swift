@@ -99,7 +99,7 @@ public class FileRotationLogger: BaseLogger {
             closeFile()
             do {
                 let archivedFileURL = fileURL.deletingPathExtension()
-                    .appendingPathExtension(dateFormatter(Date(), dateFormat: "yyyyMMdd", timeZone: "GMT") + "_" + UUID().uuidString.lowercased())
+                    .appendingPathExtension(dateFormatter(Date(), dateFormat: "yyyy-MM-dd_HH-mm-ss", timeZone: "GMT") + "_" + UUID().uuidString.lowercased())
                 try FileManager.default.moveItem(at: fileURL, to: archivedFileURL)
                 delegate?.fileRotationLogger(self, didArchiveFileURL: fileURL, toFileURL: archivedFileURL)
             } catch {
