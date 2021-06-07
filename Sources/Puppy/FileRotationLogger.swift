@@ -99,8 +99,7 @@ public class FileRotationLogger: BaseLogger {
             closeFile()
             do {
                 let timestamp = dateFormatter(Date(), dateFormat: "yyyy-MM-dd_HH-mm-ss", timeZone: "GMT")
-                let uuid = UUID().uuidString.lowercased()
-                let archivedFileName = "\(timestamp).\(uuid).log"
+                let archivedFileName = "\(timestamp).log"
                 let archivedFileURL = fileURL
                     .deletingLastPathComponent()
                     .appendingPathComponent(archivedFileName)
